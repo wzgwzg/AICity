@@ -1,0 +1,21 @@
+CUDA_VISIBLE_DEVICES=0,1,2,3 \
+python examples/train.py \
+    -a aicity_masks_seresnext101 \
+    --model-type 'masks' \
+    --weights ./pretrain_models/seresnext101_base.pth.tar \
+    --num-m-features 128 \
+    --masks 20 \
+    -d small_vehicle \
+    --combine-trainval \
+    --height 288 \
+    --width 384 \
+    -b 64 \
+    --lr 0.03 \
+    --lrm 0.1 \
+    --weight-decay 0.0005 \
+    --epochs 250 \
+    --warm-up-ep 50 \
+    --step-size 100 \
+    --start-save 200 \
+    --seed 0 \
+    --logs-dir ./logs 

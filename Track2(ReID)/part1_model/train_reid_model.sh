@@ -1,0 +1,25 @@
+CUDA_VISIBLE_DEVICES=4,5,6,7 \
+python examples/cross_trihard_with_crop.py \
+    -a cross_trihard_senet101 \
+    -b 128 \
+    -d complete_aicity_car196 \
+    --combine-trainval \
+    --weights ./pretrain_models/se_resnext101_32x4d-3b2fe3d8.pth \
+    --logs-dir ./output/cross_trihard_senet101/ \
+    --optimizer 1 \
+    --lr 3e-4 \
+    --weight-decay 0.0005 \
+    --epochs 100  \
+    --step_size 50 \
+    --step_size2 70 \
+    --step_size3 90 \
+    --lr_mult 1.0 \
+    --metric_loss_weight 0.02 \
+    --big_height 310 \
+    --big_width 414 \
+    --target_height 288 \
+    --target_width 384 \
+    --epoch_inter 10 \
+    --start_save 20 \
+    --dense_evaluate 100 \
+    --warm_up_ep 20 \
